@@ -1,0 +1,112 @@
+
+
+<div class="bootstrap-wrapper">
+  <div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+       <mat-card>
+        <div class="col-md-6 offset-md-3">
+            <div class="container test-center">
+                <img src="../../../assets/Logo.jpg">
+            </div>
+            <h1 class="test-center">Register Here</h1>
+
+            <!--{{user | json}}-->
+
+            <form  (ngSubmit)="formSubmit()">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Employee ID</mat-label>
+                    <input
+                     [(ngModel)]="user.employeeId" 
+                     name = employeeId
+                     type="number" matInput placeholder="Enter Here">
+                  </mat-form-field>
+
+                 <!--FirstName-->
+                 <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>First_Name</mat-label>
+                    <input 
+                    [(ngModel)]="user.firstName" 
+                     name = firstName
+                     matInput placeholder="Enter Here">
+                  </mat-form-field>
+
+                  <!--Last_Name-->
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Last_Name</mat-label>
+                    <input 
+                    [(ngModel)]="user.lastName" 
+                    name = lastName
+                     matInput placeholder="Enter Here">
+                  </mat-form-field>
+
+                 <!--Email-->
+                 <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input 
+                    [(ngModel)]="user.email" 
+                    name = email
+                     type="email" matInput placeholder="Enter Here">
+                  </mat-form-field>
+
+                  <!--Mobile_No-->
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Mobile_No</mat-label>
+                    <input 
+                    [(ngModel)]="user.mobileNo" 
+                    name = mobileNo
+                     type="number" matInput placeholder="Enter Here">
+                  </mat-form-field>
+          
+                  <!--Experience-->
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Experience</mat-label>
+                    <input 
+                     [(ngModel)]="user.experience" 
+                    name = experience
+                     type="number" matInput placeholder="Enter Here">
+                  </mat-form-field>
+                
+
+                  <!--Password-->
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input 
+                    [(ngModel)]="user.password" 
+                    name = password
+                     type="password" matInput placeholder="Enter Here">
+                  </mat-form-field>
+
+                    <!--confirmPassword;-->
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Confirm Password;</mat-label>
+                      <input 
+                      [(ngModel)]="user.confirmPassword" 
+                    name = confirmPassword
+                    type="password" matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+
+                  <!--<h3>Role</h3>-->
+                  <mat-radio-group [(ngModel)]="user.roles"
+                  name="roles"  aria-label="Select an option">
+                    <mat-radio-button value="manager">Manager</mat-radio-button>
+                    <mat-radio-button value="employee">Employee</mat-radio-button>
+                  </mat-radio-group>
+
+
+                  <div class="container text-center">
+                    <button style="margin-top: 20px; font-size: 20px; margin-bottom: 20px;" type="submit" mat-raised-button color="primary">Register</button>
+                    <button style="margin-top: 20px; margin-left: 20px;  font-size: 20px; margin-bottom: 20px;" mat-raised-button color="accent">Login</button>
+                  </div>
+
+
+
+
+            </form>
+
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

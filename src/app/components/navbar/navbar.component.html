@@ -1,0 +1,47 @@
+
+
+  <p>
+    <mat-toolbar color="primary">
+      <a 
+      routerLink="/" class="example-icon" aria-label="Example icon-button with menu icon">
+
+        <mat-icon>home</mat-icon>
+      </a>
+      <span>Competancy System</span>
+      <span class="example-spacer"></span>
+
+      <a
+      *ngIf="!isLoggedIn"
+      [routerLink]="'/login'" mat-icon-button class="example-icon login " aria-label="Example icon-button with heart icon">
+        <!--<mat-icon>login</mat-icon>-->
+        Login
+      </a>
+
+      <a 
+      *ngIf="!isLoggedIn"
+      [routerLink]="'/signupp'" mat-icon-button class="example-icon register-icon mr30 ml30" aria-label="Example icon-button with heart icon">
+        Register
+      </a>
+      
+    
+      <a 
+      (click)="logout()"
+      *ngIf="isLoggedIn"
+      mat-icon-button class="example-icon register-icon mr30 ml30" aria-label="Example icon-button with heart icon">
+        Logout
+      </a>
+
+
+      <button 
+      *ngIf="isLoggedIn && user"
+      mat-button
+      routerLink="/manager-dashboard/profile"
+      class="example-icon register-icon mr30 ml30" aria-label="Example icon-button with heart icon">
+      {{user.firstName}}
+      </button>
+      
+     
+    </mat-toolbar>
+  </p>
+  
+      

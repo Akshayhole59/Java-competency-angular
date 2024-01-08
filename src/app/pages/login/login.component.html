@@ -1,0 +1,44 @@
+
+<div class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row mt20 ">
+        <mat-card  class="full-width-height mt30">
+          <div class="col-md-6 offset-md-3">
+              <div class="container test-center">
+                  <img src="../../../assets/Logo.jpg">
+              </div>
+               <!--{{loginData | json}}-->
+              <form (ngSubmit)="formSubmit()">
+                <!--User Name-->
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>UserName</mat-label>
+                    <input 
+                    [(ngModel)]="loginData.username" 
+                     name = "username"
+                    required
+                    matInput placeholder="Enter Here">
+                    <!--<mat-hint>Use Your Emil As UserName</mat-hint>-->
+                  </mat-form-field>
+
+
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input 
+                    [(ngModel)]="loginData.password" 
+                    name = "password"
+                    type= 'password'
+                    required  matInput placeholder="Enter Here">
+                  </mat-form-field>
+
+                  <div class='container'>
+                    <button mat-raised-button color="primary mb20" type="submit">Login</button>
+                    <button mat-raised-button color="accent ml20 mb20" type="reset">Reset</button>
+                  </div>
+
+              </form>
+
+              </div>
+              </mat-card>
+              </div>
+              </div>
+              </div>

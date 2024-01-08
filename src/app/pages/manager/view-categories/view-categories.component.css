@@ -1,0 +1,19 @@
+.custom-list-item {
+    display: flex;
+    flex-direction: row;
+    /* Add any additional styling you need */
+  }
+
+  .line-spacing {
+    margin-left: 50px; /* Adjust the margin as needed */
+  }
+
+  .line-spacing-right {
+    margin-right: 50px; /* Adjust the margin as needed */
+  }
+
+  .list-content {
+    display: flex;
+    flex-direction: row; /* Display content in a row */
+    gap: 50px; /* Adjust the gap between elements as needed */
+  }
