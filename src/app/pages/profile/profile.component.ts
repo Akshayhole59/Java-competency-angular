@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../services/login.service';
-import { Observable } from 'rxjs';
+//import { LoginService } from '../../services/login.service';
+//import { Observable } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -10,9 +10,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ProfileComponent implements OnInit{
   user: any | null = null;
-  constructor(private login:LoginService){}
+  constructor(){}
+//private login:LoginService
+
   ngOnInit(): void {
-   this.user =  this.login.getUser();
+   //this.user =  this.login.getUser();
 
    }
 

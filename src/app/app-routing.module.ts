@@ -5,8 +5,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/manager/dashboard/dashboard.component';
 import { EmployeedashboardComponent } from './pages/employee/employeedashboard/employeedashboard.component';
-import { managerGuard } from './services/manager.guard';
-import { employeeGuard } from './services/employee.guard';
+//import { managerGuard } from './services/manager.guard';
+//import { employeeGuard } from './services/employee.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/manager/welcome/welcome.component';
 import { ViewCategoriesComponent } from './pages/manager/view-categories/view-categories.component';
@@ -14,8 +14,11 @@ import { AddCategoriesComponent } from './pages/manager/add-categories/add-categ
 import { ViewExamComponent } from './pages/manager/view-exam/view-exam.component';
 import { AddMcqexamComponent } from './pages/manager/add-mcqexam/add-mcqexam.component';
 import { UpdateMcqexamComponent } from './pages/manager/update-mcqexam/update-mcqexam.component';
-import { ViewTestQuestionsComponent } from './pages/manager/view-test-questions/view-test-questions.component';
-import { AddQuestionComponent } from './pages/manager/add-question/add-question.component';
+import { ViewQuestionsComponent } from './pages/manager/view-questions/view-questions.component';
+// import { AddQuestionComponent } from './pages/manager/add-question/add-question.component';
+import { AddMcqQuestionsComponent } from './pages/manager/add-mcq-questions/add-mcq-questions.component';
+import { UpdateQuestionComponent } from './pages/manager/update-question/update-question.component';
+import { AddPdfComponent } from './pages/manager/add-pdf/add-pdf.component';
 
 const routes: Routes = [
   {
@@ -37,13 +40,13 @@ const routes: Routes = [
     path: 'employee-dashboard',
     component: EmployeedashboardComponent,
     pathMatch:'full',
-    canActivate:[employeeGuard]
+    //canActivate:[employeeGuard]
   },
   {
     path: 'manager-dashboard',
     component: DashboardComponent,
    // pathMatch:'full',
-    canActivate:[managerGuard],
+   // canActivate:[managerGuard],
     children:[{
      path:'',
      component:WelcomeComponent,
@@ -73,12 +76,28 @@ const routes: Routes = [
     component:UpdateMcqexamComponent,
    },
    {
-    path:'view-questions/:qid/:title',
-    component:ViewTestQuestionsComponent,
+    path:'add-pdf',
+    component: AddPdfComponent,
    },
+  //  {
+  //   path:'view-questions/:qid/:title',
+  //   component:ViewTestQuestionsComponent,
+  //  },
+     {
+     path:'view-questions',
+      component:ViewQuestionsComponent,
+     },
+    {
+      path:'update-questions/:qid',
+       component:UpdateQuestionComponent,
+   },
+  //  {
+  //   path:'add-questions/:qid/:title',
+  //   component:AddQuestionComponent,
+  //  },
    {
-    path:'add-questions/:qid/:title',
-    component:AddQuestionComponent,
+    path:'add-questions',
+    component:AddMcqQuestionsComponent,
    },
   ],
   },

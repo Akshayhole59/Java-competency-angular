@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { McqserviceService } from '../../../services/mcqservice.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-exam',
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 export class ViewExamComponent implements OnInit{
 
    mcqTest : any= []
-  constructor(private _mcqservice:McqserviceService){}
+  constructor(private _mcqservice:McqserviceService,private _router:Router){}
 
   ngOnInit(): void {
     this._mcqservice.mcqtest().subscribe(
@@ -36,8 +37,7 @@ export class ViewExamComponent implements OnInit{
     this._mcqservice.deleteMcqTest(qid).subscribe(
       (data:any)=>{
         this.mcqTest=this.mcqTest.filter((mcqTestnew : any)=>mcqTestnew.qid != qid)
-        Swal.fire('Success','Deleted !!' , 'success')
-      },
+        Swal.fire('Success','Deleted !!' , 'success')},
       (error)=>{
        console.log(error);
        Swal.fire('Error', 'Error in Deleting Test', 'error');

@@ -11,13 +11,39 @@ export class QuestionServiceService {
     private _http:HttpClient,
   ) { }
 
-  public getQuestionOfTest(qid:any){
-return this._http.get(`${baseUrl}/question/quiz/all/${qid}`)
-  }
+//   public getQuestionOfTest(qid:any){
+// return this._http.get(`${baseUrl}/question/quiz/all/${qid}`)
+//   }
+
+    public getQuestion(){
+      console.log("In view question")
+      return this._http.get(`${baseUrl}/testmanagement/api/v1/questions`)
+    }
 
 
   //add question 
     public addQuestion(question : any){
-      return this._http.post(`${baseUrl}/question/`,question);
+      console.log("In the question service")
+      console.log(question)
+      return this._http.post(`${baseUrl}/testmanagement/api/v1/questions`,question);
     }
+
+
+    public getSinglequestion(questionId : any){
+      return this._http.get(`${baseUrl}/testmanagement/api/v1/questions/${questionId}`)
+    }
+
+    public updatequestion(question : any,questionId : any){
+      return this._http.put(`${baseUrl}/testmanagement/api/v1/questions/${questionId}`,question )
+    }
+
+
+    // public deleteQuetion(questionId : any){
+    //   return this._http.delete((`${baseUrl}/testmanagement/api/v1/questions/${questionId}`)
+    // }
+
+    public deleteQuetion(questionId : any){
+      return this._http.delete(`${baseUrl}/testmanagement/api/v1/questions/${questionId}`)
+    }
+
 }

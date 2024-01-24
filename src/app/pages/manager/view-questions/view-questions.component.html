@@ -1,15 +1,15 @@
-<h1 class="mt20">Question of {{qTitle}}</h1>
+<h1 class="mt20">Question of </h1>
 
 <div class="bootstrap-wrapper">
 <div class="row">
     <div class="col-md-12">
-        <!-- {{questions  | json}} -->
+        {{questions  | json}} 
 
-        <div class="container text-center">
+        <!-- <div class="container text-center">
             <button mat-raised-button 
             color="primary" 
             [routerLink]="'/manager-dashboard/add-questions/'+qId+'/'+qTitle">Add New Question</button>
-        </div>
+        </div> -->
        
      <mat-card *ngFor="let q of questions; let i= index" class="mt20"> 
         <mat-card-content>
@@ -34,8 +34,26 @@
                     <p><b>4)</b>{{ q.option4}}</p>
                 </div>
                </div>
+
+               <div class="row">
+                <div class="col-md-6">
+                    <p><b>Marks</b>{{q.marks}}</p>
+                </div>
+                
+               </div>
                <mat-divider></mat-divider>
                <p><b>Correct Answer : </b>{{q.answer}}</p>
+
+
+               <button [routerLink]="'/manager-dashboard/update-questions/'+q.questionId"  mat-flat-button class="ml20" color="primary">
+                Update
+              </button>
+
+              <button  mat-fab class="ml20" color="primary" (click)="deleteQuestion(q.questionId)">
+                <mat-icon>delete</mat-icon>
+              </button>
+
+         
                
             </div>
 

@@ -11,13 +11,17 @@ export class CategoryService {
 
   constructor(private _http:HttpClient) { }
 
+  
+
+
   //get category
   public categories(){
-    return this._http.get(`${baseUrl}/category/`)
+    console.log("In the categories")
+    return this._http.get(`${baseUrl}/testmanagement/api/v1/categories/getCategories`)
   }
 
   //add category
   public addCategory(category : any ){
-    return this._http.post(`${baseUrl}/category/`, category)
+    return this._http.post(`${baseUrl}/testmanagement/api/v1/categories`, category)
   }
 }

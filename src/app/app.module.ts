@@ -21,7 +21,7 @@ import { HomeComponent } from './pages/home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-import { authInterceptorProviders } from './services/auth.intercepter';
+//import { authInterceptorProviders } from './services/auth.intercepter';
 import { DashboardComponent } from './pages/manager/dashboard/dashboard.component';
 import { EmployeedashboardComponent } from './pages/employee/employeedashboard/employeedashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -37,8 +37,15 @@ import { AddMcqexamComponent } from './pages/manager/add-mcqexam/add-mcqexam.com
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateMcqexamComponent } from './pages/manager/update-mcqexam/update-mcqexam.component';
-import { ViewTestQuestionsComponent } from './pages/manager/view-test-questions/view-test-questions.component';
-import { AddQuestionComponent } from './pages/manager/add-question/add-question.component';
+import { ViewQuestionsComponent } from './pages/manager/view-questions/view-questions.component';
+// import { AddQuestionComponent } from './pages/manager/add-question/add-question.component';
+import { SidebarComponent as EmployeeSidebar} from './pages/employee/sidebar/sidebar.component';
+import { AddMcqQuestionsComponent } from './pages/manager/add-mcq-questions/add-mcq-questions.component'
+import {MatMenuModule} from '@angular/material/menu';
+
+
+import { UpdateQuestionComponent } from './pages/manager/update-question/update-question.component';
+import { AddPdfComponent } from './pages/manager/add-pdf/add-pdf.component';
 
 
 
@@ -61,8 +68,12 @@ import { AddQuestionComponent } from './pages/manager/add-question/add-question.
     ViewExamComponent,
     AddMcqexamComponent,
     UpdateMcqexamComponent,
-    ViewTestQuestionsComponent,
-    AddQuestionComponent
+    ViewQuestionsComponent,
+    EmployeeSidebar,
+    AddMcqQuestionsComponent,
+    AddMcqQuestionsComponent,
+    UpdateQuestionComponent,
+    AddPdfComponent
   ],
   imports: [
     BrowserModule,
@@ -83,11 +94,12 @@ import { AddQuestionComponent } from './pages/manager/add-question/add-question.
     MatGridListModule,
     MatDividerModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule,
   ],
   providers: [
-    provideClientHydration(),
-    authInterceptorProviders
+    provideClientHydration()
+    //authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
