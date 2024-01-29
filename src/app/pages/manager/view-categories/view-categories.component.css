@@ -1,19 +1,64 @@
-.custom-list-item {
+/* .custom-list-item {
     display: flex;
     flex-direction: row;
-    /* Add any additional styling you need */
+    /* Add any additional styling you need 
   }
 
   .line-spacing {
-    margin-left: 50px; /* Adjust the margin as needed */
+    margin-left: 50px; /* Adjust the margin as needed 
   }
 
   .line-spacing-right {
-    margin-right: 50px; /* Adjust the margin as needed */
+    margin-right: 50px; /* Adjust the margin as needed 
   }
 
   .list-content {
     display: flex;
-    flex-direction: row; /* Display content in a row */
-    gap: 50px; /* Adjust the gap between elements as needed */
+    flex-direction: row; /* Display content in a row 
+    gap: 50px; /* Adjust the gap between elements as needed 
+  }
+
+
+  .category-item {
+    display: flex;
+    align-items: center; /* Align items vertically in the center 
+  }
+  
+  .category-details {
+    margin-left: 8px; /* Adjust as needed to create space between icon and details 
+  } */
+
+  .category-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .category-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px; /* Adjust as needed for spacing */
+  }
+  
+  .title,
+  .description {
+    margin-bottom: 5px; /* Adjust as needed for spacing */
+  }
+  
+  .actions {
+    margin-left: auto; /* Push buttons to the right */
+    display: flex;
+    align-items: center;
+  }
+
+  .leftspace {
+    margin-left: 8px; /* Adjust as needed for space between buttons */
+  }
+
+  
+  .category-bottom {
+    margin-bottom: 10px; /* Adjust as needed for space between categories */
+  }
+
+  .category-top {
+    margin-top: 10px; /* Adjust as needed for space between categories */
   }

@@ -19,6 +19,7 @@ import { ViewQuestionsComponent } from './pages/manager/view-questions/view-ques
 import { AddMcqQuestionsComponent } from './pages/manager/add-mcq-questions/add-mcq-questions.component';
 import { UpdateQuestionComponent } from './pages/manager/update-question/update-question.component';
 import { AddPdfComponent } from './pages/manager/add-pdf/add-pdf.component';
+import { UpdateCategoriesComponent } from './pages/manager/update-categories/update-categories.component';
 
 const routes: Routes = [
   {
@@ -90,6 +91,10 @@ const routes: Routes = [
     {
       path:'update-questions/:qid',
        component:UpdateQuestionComponent,
+   },
+   {
+      path:'update-categories/:category_id',
+      component:UpdateCategoriesComponent,
    },
   //  {
   //   path:'add-questions/:qid/:title',

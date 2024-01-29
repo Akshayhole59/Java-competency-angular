@@ -11,17 +11,31 @@ export class CategoryService {
 
   constructor(private _http:HttpClient) { }
 
-  
-
-
   //get category
   public categories(){
     console.log("In the categories")
-    return this._http.get(`${baseUrl}/testmanagement/api/v1/categories/getCategories`)
+    return this._http.get(`${baseUrl}/testmanagement/api/v1/categories`)
   }
 
   //add category
   public addCategory(category : any ){
     return this._http.post(`${baseUrl}/testmanagement/api/v1/categories`, category)
   }
+
+  public deleteCategories(categoryId : any){
+    return this._http.delete(`${baseUrl}/testmanagement/api/v1/categories/${categoryId}`)
+  }
+
+  public getCategoryById(category_id : any){
+    return this._http.get(`${baseUrl}/testmanagement/api/v1/categories/${category_id}`)
+  }
+
+  public updateCategoryByID(category : any){
+    return this._http.put(`${baseUrl}/testmanagement/api/v1/categories`,category)
+  }
+  
 }
+
+
+
+

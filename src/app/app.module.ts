@@ -46,6 +46,8 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import { UpdateQuestionComponent } from './pages/manager/update-question/update-question.component';
 import { AddPdfComponent } from './pages/manager/add-pdf/add-pdf.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { UpdateCategoriesComponent } from './pages/manager/update-categories/update-categories.component';
 
 
 
@@ -73,7 +75,8 @@ import { AddPdfComponent } from './pages/manager/add-pdf/add-pdf.component';
     AddMcqQuestionsComponent,
     AddMcqQuestionsComponent,
     UpdateQuestionComponent,
-    AddPdfComponent
+    AddPdfComponent,
+    UpdateCategoriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +99,7 @@ import { AddPdfComponent } from './pages/manager/add-pdf/add-pdf.component';
     MatSlideToggleModule,
     MatSelectModule,
     MatMenuModule,
+    NgxFileDropModule
   ],
   providers: [
     provideClientHydration()

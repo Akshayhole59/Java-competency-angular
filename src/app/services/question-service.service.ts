@@ -38,12 +38,14 @@ export class QuestionServiceService {
     }
 
 
-    // public deleteQuetion(questionId : any){
-    //   return this._http.delete((`${baseUrl}/testmanagement/api/v1/questions/${questionId}`)
-    // }
+  
 
     public deleteQuetion(questionId : any){
       return this._http.delete(`${baseUrl}/testmanagement/api/v1/questions/${questionId}`)
+    }
+
+    public sendExcelFile(formData:any){
+    return this._http.post(`${baseUrl}/testmanagement/api/v1/questions/import`,formData)
     }
 
 }

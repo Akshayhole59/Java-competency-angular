@@ -1,4 +1,4 @@
-<div class="bootstrap-wrapper">
+<!-- <div class="bootstrap-wrapper">
  <mat-card>
     <mat-list>
  <h1>All Categories</h1>
@@ -9,7 +9,15 @@
         <div>{{c.cid}}</div>
         <div mat-line>{{c.title}}</div>
         <div>{{c.description}}</div>
+        <button [routerLink]="'/manager-dashboard/update-questions/'+c.cid"  mat-flat-button class="ml20" color="primary">
+         Update
+       </button>
+       <!-- (click)="deleteQuestion(q.questionId) 
+       <button  mat-fab class="ml20" color="primary" >
+         <mat-icon>delete</mat-icon>
+       </button>
        <mat-divider></mat-divider>
+
       </div> 
  </mat-list-item>
 
@@ -20,9 +28,63 @@
   <button routerLink="/manager-dashboard/add-category" mat-raised-button color="accent">ADD New Category</button>
  </div>
  </mat-card>
-</div>
+</div> -->
 
 
 
+
+
+
+
+
+
+
+
+<!-- <mat-card>
+   <mat-list>
+     <div mat-subheader>All Categories</div>
+     <mat-list-item *ngFor="let c of categories">
+       
+       <div mat-line>{{ c.title }}</div>
+       <div>{{ c.description }}</div>
+     </mat-list-item>
+   </mat-list>
+ </mat-card> -->
+
+
+ <div class="bootstrap-wrapper">
+   <div class="row">
+       <div class="col-md-12">
+
+
+         <mat-card>
+            <mat-list>
+              <div mat-subheader>All Categories</div>
+              <ng-container *ngFor="let c of categories">
+                <mat-list-item class="category-bottom category-top">
+                  <div class="category-container">
+                    <mat-icon mat-list-icon>folder</mat-icon>
+                    <div class="category-details">
+                      <div class="title">{{ c.title }}</div>
+                      <div class="description">{{ c.description }}</div>
+                    </div>
+                    <div class="actions">
+                     <!-- (click)="deleteCategory(c)"
+                     (click)="updateCategory(c)" -->
+                      <button mat-raised-button color="primary" [routerLink]="'/manager-dashboard/update-categories/'+c.category_id">Update</button>
+                      <button mat-raised-button color="warn" (click)="deleteCategory(c.category_id)" class="leftspace">Delete</button>
+                    </div>
+                  </div>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              </ng-container>
+            </mat-list>
+          </mat-card>
+
+
+ </div>
+ </div>
+ </div>
+ 
  
 
