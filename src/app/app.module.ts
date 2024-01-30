@@ -48,7 +48,7 @@ import { UpdateQuestionComponent } from './pages/manager/update-question/update-
 import { AddPdfComponent } from './pages/manager/add-pdf/add-pdf.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { UpdateCategoriesComponent } from './pages/manager/update-categories/update-categories.component';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -99,7 +99,8 @@ import { UpdateCategoriesComponent } from './pages/manager/update-categories/upd
     MatSlideToggleModule,
     MatSelectModule,
     MatMenuModule,
-    NgxFileDropModule
+    NgxFileDropModule,
+    MatCheckboxModule
   ],
   providers: [
     provideClientHydration()

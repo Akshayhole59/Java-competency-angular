@@ -3,12 +3,12 @@
 <div class="container">
 <div class="row">
 <div class="col-md-8 offset-2">
-<form (ngSubmit)="addMcqTest1()">
+<form>
 
 <mat-form-field class="w100">
     <mat-label>Title</mat-label>
    <input 
-   [(ngModel)]="mcqExamData.title"
+   [(ngModel)]="test.title"
    type="text" name="title" placeholder="Enter here" matInput/>
 </mat-form-field>
 
@@ -16,7 +16,7 @@
 <mat-form-field class="w100" appearance="fill">
     <mat-label>Description</mat-label>
    <textarea 
-   [(ngModel)]="mcqExamData.description"
+   [(ngModel)]="test.description"
    type="text" name="description" placeholder="Enter here" matInput></textarea>
 </mat-form-field>
 <div class="row">
@@ -25,7 +25,7 @@
     <mat-form-field class="w100" appearance="fill">
         <mat-label>Max-Marks</mat-label>
        <input 
-       [(ngModel)]="mcqExamData.maxMarks"
+       [(ngModel)]="test.maxMarks"
        type="text" name="maxMarks" placeholder="Enter here" matInput/>
     </mat-form-field>
 </div>
@@ -34,41 +34,60 @@
     <mat-form-field class="w100" appearance="fill">
         <mat-label>Number Of Questions</mat-label>
        <input 
-       [(ngModel)]="mcqExamData.numberofQuestions"
+       [(ngModel)]="test.numberofQuestions"
        type="text" name="numberOfQuestion" placeholder="Enter here" matInput/>
     </mat-form-field>
 </div>
 </div>
-<div *ngFor="let question of questions">
-    <input type="checkbox" [(ngModel)]="question.selected" /> {{ question.title }}
-  </div>
 
-
+    <br/>
     <mat-slide-toggle
     name="active"
-    [(ngModel)]="mcqExamData.active"
+    [(ngModel)]="test.active"
         class="mt20 mb20"
         color="primary"
         checked="false">
       Active
     </mat-slide-toggle>
-  
     <br/>
-    <!-- //categories -->
-    <!-- <mat-form-field class="mt20">
-        <mat-label>Categories</mat-label>
-        <mat-select name="category" [(ngModel)]="mcqExamData.category.cid">
-            <mat-option *ngFor="let c of categories" value="{{ c.cid }}">
-            {{c.title}} 
-          </mat-option>
-        </mat-select>
-      </mat-form-field> -->
 
-      <div class="container text-center mb20">
-      <button mat-raised-button color="primary">ADD</button>
-
-      </div>
+      <mat-card *ngFor="let q of questionsList; let i = index" class="mt20">
+        <mat-card-content>
+          <mat-checkbox (change)="onCheckboxChange(q)" [checked]="selectedQuestionsList.includes(q)" class="question-checkbox">
+            <b> Q{{ i + 1 }} </b><span class="mt20" [innerHTML]="q.content"></span>
+          </mat-checkbox>
+          <!-- <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <p><b>1)</b>{{ q.option1 }}</p>
+              </div>
+              <div class="col-md-6">
+                <p><b>2)</b>{{ q.option2 }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p><b>3)</b>{{ q.option3 }}</p>
+              </div>
+              <div class="col-md-6">
+                <p><b>4)</b>{{ q.option4 }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p><b>Marks</b>{{ q.marks }}</p>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+            <p><b>Correct Answer : </b>{{ q.answer }}</p>
+          </div> -->
+        </mat-card-content>
+      </mat-card>
       
+
+        <div class="container text-center mb20">
+        <button mat-raised-button color="primary" (click)="addMcqTest()">ADD</button>
+        </div>
 
 </form>
 

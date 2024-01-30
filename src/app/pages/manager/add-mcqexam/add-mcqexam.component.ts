@@ -3,6 +3,7 @@ import { CategoryService } from '../../../services/category.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { McqserviceService } from '../../../services/mcqservice.service';
+import { QuestionServiceService } from '../../../services/question-service.service';
 
 
 @Component({
@@ -11,58 +12,75 @@ import { McqserviceService } from '../../../services/mcqservice.service';
   styleUrl: './add-mcqexam.component.css'
 })
 export class AddMcqexamComponent implements OnInit{
-  categories : any =[]
-
-  mcqExamData :any= {
+  questionsList: any[] = [];
+  selectedQuestionsList: any[] = [];
+  test :any= {
     title:'',
     description:'',
     maxMarks:'',
     numberofQuestions:'',
-    active:true,
-    category:{
-      cid:'',
-    },
+    questions: [],
   }
 
-  constructor(private _categoriesservice:CategoryService, private _snak:MatSnackBar, private _mcqService : McqserviceService){}
+  constructor( private _snak:MatSnackBar, private _mcqService : McqserviceService, private _questionservice : QuestionServiceService){}
 
   ngOnInit(): void {
-    this._categoriesservice.categories().subscribe(
-      (data : any)=>{
-        this.categories=data;
-        console.log(data);
+   
+
+    this._questionservice.getQuestion().subscribe(
+      (data: any)=>{
+        this.questionsList=data;
       },
-      (error )=>{
-        console.log(error)
-        Swal.fire('Error','Error in get categories data','error')
-      });
+      (error)=>{
+        Swal.fire('Error','Error in get Question for this service');
+      }
+    )
+
+
   }
 
-  public addMcqTest1(){
-    // console.log(this.mcqData);
-    if(this.mcqExamData.title.trim()=='' || this.mcqExamData.title == null){
+  public onCheckboxChange(question: any): void {
+    if (this.selectedQuestionsList.includes(question)) {
+      // Remove from the list if already selected
+      this.selectedQuestionsList = this.selectedQuestionsList.filter(q => q !== question);
+    } else {
+      // Add to the list if not selected
+      this.selectedQuestionsList.push(question);
+    }
+  }
+   
+   
+
+  //This is for to add test in data base 
+  public addMcqTest(){
+    
+      if(this.test.title.trim()=='' || this.test.title == null){
     this._snak.open("Title required",'',{
      duration : 3000,
-    })
-    }
-
+      })
+     }
+     
+     console.log("To check the selected questions ");
+     
+     //this is for to map the questions list in request
+     this.test.questions = this.selectedQuestionsList.map(q => {
+      return {
+        content: q.content,
+        option1: q.option1,
+        option2: q.option2,
+        option3: q.option3,
+        option4: q.option4,
+        marks: q.marks,
+        answer: q.answer,
+      };
+    });
+    
+    console.log(this.test.questions);
+    console.log(this.test)
     //call addTest service
-     this._mcqService.addMcqTest(this.mcqExamData).subscribe((data)=>
+     this._mcqService.addMcqTest(this.test).subscribe((data)=>
      {
       Swal.fire('Success','Test is added','success');
-       //remove data 
-      this.mcqExamData={
-        title:'',
-        description:'',
-        maxMarks:'',
-        numberofQuestions:'',
-        active:true,
-        category:{
-          cid:'',
-        },
-      }
-
-
      },
      (error)=>{
       Swal.fire('Error','Error in add MCQ-test in  database','error');
