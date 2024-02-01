@@ -65,6 +65,7 @@ export class AddMcqexamComponent implements OnInit{
      //this is for to map the questions list in request
      this.test.questions = this.selectedQuestionsList.map(q => {
       return {
+        questionId: q.questionId,
         content: q.content,
         option1: q.option1,
         option2: q.option2,

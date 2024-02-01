@@ -20,13 +20,14 @@ public addMcqTest(testData : any){
   return this._http.post(`${baseUrl}/testmanagement/api/v1/tests`,testData);
 }
 
-public deleteMcqTest(qid : any){
-  return this._http.delete(`${baseUrl}/testmanagement/api/v1/tests${qid}`);
+public deleteMcqTest(testId : any){
+  console.log(testId)
+  return this._http.delete(`${baseUrl}/testmanagement/api/v1/tests/${testId}`);
 }
 
 //get single test
 public getSingleMcqtest(qId:any){
- return this._http.get(`${baseUrl}/testmanagement/api/v1/tests${qId}`)
+ return this._http.get(`${baseUrl}/testmanagement/api/v1/tests/${qId}`)
 }
 
 //update test

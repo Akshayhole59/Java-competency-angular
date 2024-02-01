@@ -7,19 +7,19 @@
         <mat-card-title>
            {{q.title}}
         </mat-card-title>
-        <mat-card-subtitle>
+        <!-- <mat-card-subtitle>
            {{q.category.title}}
-        </mat-card-subtitle>
+        </mat-card-subtitle> -->
     </mat-card-header>
 
     <mat-card-content>
         <p>{{q.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button 
+        <!-- <button 
         [routerLink]="'/manager-dashboard/view-questions/'+q.qid+'/'+q.title" mat-flat-button color="primary">
             Questions
-        </button>
+        </button> -->
 
         <button  mat-stroked-button class="ml20" color="primary">
             Max Marks : {{q.maxMarks}}
@@ -29,16 +29,16 @@
             Questions : {{q.numberofQuestions}}
         </button>
 
-        <button [routerLink]="'/manager-dashboard/update-test/'+q.qid"  mat-flat-button class="ml20" color="primary">
+        <!-- <button [routerLink]="'/manager-dashboard/update-test/'+q.qid"  mat-flat-button class="ml20" color="primary">
             Update
-        </button>
+        </button> -->
 
-        <button  mat-flat-button class="ml20" color="primary">
+        <!-- <button  mat-flat-button class="ml20" color="primary">
             Attempts
-        </button>
+        </button> -->
 
 
-        <button  mat-fab class="ml20" color="primary" (click)="deleteMcqTest(q.qid)">
+        <button  mat-fab class="ml20" color="primary" (click)="deleteMcqTest(q.testId)">
             <mat-icon>delete</mat-icon>
         </button>
 

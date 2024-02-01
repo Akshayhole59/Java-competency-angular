@@ -14,6 +14,7 @@ export class ViewExamComponent implements OnInit{
   constructor(private _mcqservice:McqserviceService,private _router:Router){}
 
   ngOnInit(): void {
+
     this._mcqservice.mcqtest().subscribe(
       (data:any)=>{
         this.mcqTest=data;
@@ -25,7 +26,7 @@ export class ViewExamComponent implements OnInit{
       })
   }
 
-  public deleteMcqTest(qid:any){
+  public deleteMcqTest(testId:any){
    Swal.fire({
     icon:'info',
     title:'Are you sure you want to delete',
@@ -34,10 +35,16 @@ export class ViewExamComponent implements OnInit{
    }).then((result)=>{
     if(result.isConfirmed){
        // alert(qid);
-    this._mcqservice.deleteMcqTest(qid).subscribe(
+    this._mcqservice.deleteMcqTest(testId).subscribe(
       (data:any)=>{
-        this.mcqTest=this.mcqTest.filter((mcqTestnew : any)=>mcqTestnew.qid != qid)
-        Swal.fire('Success','Deleted !!' , 'success')},
+       
+        this.mcqTest=this.mcqTest.filter((mcqTestnew : any)=>mcqTestnew.testId != testId)
+          Swal.fire('Success','Deleted !!' , 'success').then((result)=>{
+           if (result.isConfirmed) {
+             window.location.reload();
+           }
+         })
+        },
       (error)=>{
        console.log(error);
        Swal.fire('Error', 'Error in Deleting Test', 'error');
