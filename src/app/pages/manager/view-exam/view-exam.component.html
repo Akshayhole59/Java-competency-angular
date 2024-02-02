@@ -1,4 +1,4 @@
-
+{{mcqTest | json}}
 
 <mat-card class="mt20" *ngFor="let q of mcqTest">
  
@@ -29,9 +29,9 @@
             Questions : {{q.numberofQuestions}}
         </button>
 
-        <!-- <button [routerLink]="'/manager-dashboard/update-test/'+q.qid"  mat-flat-button class="ml20" color="primary">
+         <button [routerLink]="'/manager-dashboard/update-test/'+q.testId"  mat-flat-button class="ml20" color="primary">
             Update
-        </button> -->
+        </button> 
 
         <!-- <button  mat-flat-button class="ml20" color="primary">
             Attempts

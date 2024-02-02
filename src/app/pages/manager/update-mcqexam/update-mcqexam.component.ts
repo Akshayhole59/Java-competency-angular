@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrl: './update-mcqexam.component.css'
 })
 export class UpdateMcqexamComponent implements OnInit{
-  qId=0;
+  testId=0;
   test :any;
   categories : any ;
 
@@ -21,9 +21,9 @@ export class UpdateMcqexamComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.qId = this._route.snapshot.params['qid'];
-
-    this._test.getSingleMcqtest(this.qId).subscribe(
+    this.testId = this._route.snapshot.params['testId'];
+    console.log(this.testId);
+    this._test.getSingleMcqtest(this.testId).subscribe(
       (data)=>{
           this.test=data;
           console.log(this.test)

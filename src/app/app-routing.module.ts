@@ -73,7 +73,7 @@ const routes: Routes = [
     component:AddMcqexamComponent,
    },
    {
-    path:'update-test/:qid',
+    path:'update-test/:testId',
     component:UpdateMcqexamComponent,
    },
    {

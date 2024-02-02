@@ -45,6 +45,8 @@ export class QuestionServiceService {
     }
 
     public sendExcelFile(formData:any){
+      console.log("In the form data ")
+      console.log(formData)
     return this._http.post(`${baseUrl}/testmanagement/api/v1/questions/import`,formData)
     }
 
