@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { McqserviceService } from '../../../services/mcqservice.service';
 import { QuestionServiceService } from '../../../services/question-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class AddMcqexamComponent implements OnInit{
     questions: [],
   }
 
-  constructor( private _snak:MatSnackBar, private _mcqService : McqserviceService, private _questionservice : QuestionServiceService){}
+  constructor( private _snak:MatSnackBar, private _mcqService : McqserviceService, private _questionservice : QuestionServiceService, private _router:Router){}
 
   ngOnInit(): void {
    
@@ -81,7 +82,9 @@ export class AddMcqexamComponent implements OnInit{
     //call addTest service
      this._mcqService.addMcqTest(this.test).subscribe((data)=>
      {
-      Swal.fire('Success','Test is added','success');
+      Swal.fire('Success','Test is added','success').then((e)=>{
+        this._router.navigate(['/manager-dashboard/test']);
+      })
      },
      (error)=>{
       Swal.fire('Error','Error in add MCQ-test in  database','error');

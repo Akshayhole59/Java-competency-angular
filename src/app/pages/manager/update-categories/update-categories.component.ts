@@ -33,7 +33,7 @@ export class UpdateCategoriesComponent implements OnInit{
     updateCategory(){
             
 
-      this._category.updateCategoryByID(this.categories).subscribe((data:any)=>{
+      this._category.updateCategoryByID(this.categories,this.category_id).subscribe((data:any)=>{
         this.categories.title='',
         this.categories.description='',
       Swal.fire('Success !!','Category is added successfully','success')

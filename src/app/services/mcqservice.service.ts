@@ -31,7 +31,7 @@ public getSingleMcqtest(qId:any){
 }
 
 //update test
-public updateTest(test:any){
-  return this._http.put(`${baseUrl}/testmanagement/api/v1/tests`,test)
+public updateTest(test:any,testId:any){
+  return this._http.put(`${baseUrl}/testmanagement/api/v1/tests/${testId}`,test)
 }
 }

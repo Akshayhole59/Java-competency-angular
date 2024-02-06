@@ -45,7 +45,7 @@ export class UpdateMcqexamComponent implements OnInit{
   public updateData(){
      //alert("Update data")
 
-     this._test.updateTest(this.test).subscribe((data)=>{
+     this._test.updateTest(this.test,this.testId).subscribe((data)=>{
       Swal.fire("Success","Updated Successfully","success").then((e)=>{
         this._router.navigate(['/manager-dashboard/view-question'])
       })

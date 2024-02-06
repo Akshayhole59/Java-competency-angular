@@ -30,8 +30,9 @@ export class CategoryService {
     return this._http.get(`${baseUrl}/testmanagement/api/v1/categories/${category_id}`)
   }
 
-  public updateCategoryByID(category : any){
-    return this._http.put(`${baseUrl}/testmanagement/api/v1/categories`,category)
+  public updateCategoryByID(updatedCategory : any,category_id : any){
+    console.log(updatedCategory)
+    return this._http.put(`${baseUrl}/testmanagement/api/v1/categories/${category_id}`,updatedCategory)
   }
   
 }
