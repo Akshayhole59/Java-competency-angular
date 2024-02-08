@@ -3,6 +3,14 @@
 <div class="bootstrap-wrapper">
 <div class="row">
     <div class="col-md-12">
+
+        <div>
+            <label for="category">Filter by Category:</label>
+            <select id="category" [(ngModel)]="selectedCategory" (change)="onCategoryChange($event.target.value)">
+              <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+          </div>
+          
         
      <mat-card *ngFor="let q of questions; let i= index" class="mt20"> 
         <mat-card-content>

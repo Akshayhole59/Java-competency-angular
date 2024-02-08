@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionServiceService } from '../../../services/question-service.service';
 import { error } from 'console';
 import Swal from 'sweetalert2';
+import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'app-view-questions',
@@ -14,8 +15,12 @@ export class ViewQuestionsComponent implements OnInit{
   qTitle:any;
   questions:any =[]
 
+  category : any = [];
+  categories: string[] = [];
+  selectedCategory : any = 'All';
+
   constructor(private _route:ActivatedRoute,
-    private _questionservice: QuestionServiceService, private _router:Router){}
+    private _questionservice: QuestionServiceService, private _router:Router, private _category : CategoryService){}
   ngOnInit(): void {
    
      
@@ -55,7 +60,26 @@ export class ViewQuestionsComponent implements OnInit{
        })
      }
     })
+
+
+    this._category.categories().subscribe((data:any)=>{
+      this.category=data;
+      console.log(this.categories);
+      this.categories = ['All', ...data.map((category: any) => category.title)];
+     },
+     (error)=>{
+      console.log(error);
+      Swal.fire('Error ','Error in server Data ','error')
+     }
+     )
+
   }
   
+  // This is for to change the category
+  onCategoryChange(category: string): void {
+    this.selectedCategory = category;
+  }
 
 }
+
+
